@@ -1,0 +1,1 @@
+apartir do video https://www.youtube.com/watch?v=mJK5oGixSYo&t=160s&ab_channel=MarioSouto-DevSoutinho
