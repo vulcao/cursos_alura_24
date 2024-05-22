@@ -1,1 +1,6 @@
-public/robots.txt
+User-Agent: *
+Disallow: /_
+Disallow: /admin/
+Disallow: /paypal
+Disallow: /compra
+Allow: /
