@@ -21,7 +21,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/theme/GlobalStyle.js", "src/theme/components.js", "pages/index.js", "pages/faq.js"  ],
+, "src/theme/GlobalStyle.js", "src/theme/components.js", "pages/index.js", "pages/faq.js", "pages/_app.js"  ],
   "exclude": [
     "node_modules"
   ]

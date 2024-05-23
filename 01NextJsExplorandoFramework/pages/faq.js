@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Link from "../src/components/Link";
 
 // export async function getServerSideProps() {
@@ -26,6 +27,9 @@ export default function FAQPage({ faq }) {
   //console.log(faq);
   return (
     <div>
+      <Head>
+        <title>FAQ - Alura Cases Aula</title>
+      </Head>
       <h1>Alura Cases - Páginas de Perguntas FAQ</h1>
       <Link href="/">Ir para a home</Link>
       <ul>
