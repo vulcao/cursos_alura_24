@@ -124,6 +124,7 @@ export default function HomeScreen() {
             },
             display: {
               xs: "flex",
+              sm: "flex",
             },
           }}
         >
