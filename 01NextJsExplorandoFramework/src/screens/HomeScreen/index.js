@@ -223,6 +223,24 @@ export default function HomeScreen() {
                       />
                     </Text>
                   </Link>
+                  <Link
+                    href="/ssr"
+                    styleSheet={{
+                      color: theme.colors.neutral["000"],
+                      display: "block",
+                      with: "100px",
+                    }}
+                  >
+                    SSR
+                  </Link>
+                  <Link
+                    href="/ssg"
+                    styleSheet={{
+                      display: "block",
+                    }}
+                  >
+                    SSG
+                  </Link>
                 </Box>
                 <Box
                   styleSheet={{
