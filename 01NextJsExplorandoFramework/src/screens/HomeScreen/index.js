@@ -122,6 +122,9 @@ export default function HomeScreen() {
               md: theme.space.x20,
               lg: theme.space.x24,
             },
+            display: {
+              xs: "flex",
+            },
           }}
         >
           <Box
