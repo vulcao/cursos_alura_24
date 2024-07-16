@@ -24,8 +24,9 @@ export const tokenService = {
     // return globalThis?.localStorage?.getItem(ACCESS_TOKEN_KEY);
     //return globalThis?.sessionStorage?.getItem(ACCESS_TOKEN_KEY);
   },
-  delete() {
-    return globalThis?.localStorage?.removeItem(ACCESS_TOKEN_KEY);
+  delete(ctx = null) {
+    nookies.destroy(ctx, ACCESS_TOKEN_KEY);
+    // return globalThis?.localStorage?.removeItem(ACCESS_TOKEN_KEY);
     //return globalThis?.sessionStorage?.removeItem(ACCESS_TOKEN_KEY);
   },
 };
