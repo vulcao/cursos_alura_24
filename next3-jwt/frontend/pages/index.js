@@ -29,10 +29,10 @@ export default function HomeScreen() {
           authService
             .login(value.usuario, value.senha)
             .then(() => {
-              //router.push("/auth-page-ssr");
-              router.push("/auth-page-static");
+              router.push("/auth-page-ssr");
+              // router.push("/auth-page-static");
             })
-            .catch(() => {
+            .catch((err) => {
               alert("Usuário ou Senha são inválidos");
             });
         }}
