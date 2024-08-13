@@ -1,6 +1,6 @@
 import nookies from "nookies";
 
-const ACCESS_TOKEN_KEY = "lk23j4l2k3j4l23kj42l3k4jl233";
+const ACCESS_TOKEN_KEY = "ACCESS_TOKEN_KEY";
 
 const ONE_SECOND = 1;
 const ONE_MINUTE = ONE_SECOND * 60;

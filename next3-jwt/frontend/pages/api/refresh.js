@@ -1,10 +1,11 @@
 import nookies from "nookies";
+import { HttpClient } from "../../src/infra/HttpClient/HttpClient";
+
+const REFRESH_TOKEN_NAME = "REFRESH_TOKEN_NAME";
 
 const controllers = {
   async storeRefreshToken(req, res) {
     const ctx = { req, res };
-
-    const REFRESH_TOKEN_NAME = "REFRESH_TOKEN_NAME";
 
     nookies.set(ctx, REFRESH_TOKEN_NAME, req.body.refresh_token, {
       httpOnly: true,
@@ -26,11 +27,49 @@ const controllers = {
       },
     });
   },
+
+  async regenerateTokens(req, res) {
+    const ctx = { req, res };
+    const cookies = nookies.get(ctx);
+    const refresh_token = cookies[REFRESH_TOKEN_NAME];
+
+    const refreshResponse = await HttpClient(
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/refresh`,
+      {
+        method: "POST",
+        body: {
+          refresh_token,
+        },
+      }
+    );
+
+    if (refreshResponse.ok) {
+      nookies.set(
+        ctx,
+        REFRESH_TOKEN_NAME,
+        refreshResponse.body.data.refresh_token,
+        {
+          httpOnly: true,
+          sameSite: "lax",
+        }
+      );
+
+      res.json({
+        refreshResponse,
+      });
+    } else {
+      res.json({
+        status: 401,
+        message: "Não Autorizado",
+      });
+    }
+  },
 };
 
 const controllerBy = {
   POST: controllers.storeRefreshToken,
-  GET: controllers.displayCookies,
+  // GET: controllers.displayCookies,
+  GET: controllers.regenerateTokens,
 };
 
 export default function handler(request, response) {
