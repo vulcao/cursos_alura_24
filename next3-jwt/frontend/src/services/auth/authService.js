@@ -24,9 +24,6 @@ export const authService = {
             refresh_token,
           },
         });
-        console.log(response);
-
-        console.log(refresh_token);
       });
   },
 
@@ -38,6 +35,7 @@ export const authService = {
       headers: {
         Authorization: `Bearer ${token}`,
       },
+      refresh: true,
     }).then((response) => {
       if (!response.ok) throw new Error("Usuário não autorizado");
 

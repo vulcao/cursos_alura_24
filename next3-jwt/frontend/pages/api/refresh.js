@@ -11,6 +11,7 @@ const controllers = {
     nookies.set(ctx, REFRESH_TOKEN_NAME, req.body.refresh_token, {
       httpOnly: true,
       sameSite: "lax",
+      path: "/",
     });
 
     res.json({
@@ -33,6 +34,7 @@ const controllers = {
     const ctx = { req, res };
     const cookies = nookies.get(ctx);
     const refresh_token = cookies[REFRESH_TOKEN_NAME];
+    console.log("/api/refresh [regenerateTones]", refresh_token);
 
     const refreshResponse = await HttpClient(
       `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/refresh`,
@@ -52,16 +54,17 @@ const controllers = {
         {
           httpOnly: true,
           sameSite: "lax",
+          path: "/",
         }
       );
 
       tokenService.save(refreshResponse.body.data.refresh_token, ctx);
 
-      res.json({
-        refreshResponse,
+      res.status(200).json({
+        data: refreshResponse.body.data,
       });
     } else {
-      res.json({
+      res.status(401).json({
         status: 401,
         message: "Não Autorizado",
       });
