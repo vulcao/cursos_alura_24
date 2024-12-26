@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +13,6 @@
     "@eslint/js": "^9.17.0",
     "eslint": "^8.57.1",
     "globals": "^15.14.0"
-  }
+  },
+  "type": "module"
 }
