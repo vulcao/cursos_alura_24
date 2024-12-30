@@ -3,6 +3,8 @@ const somaHorasExtas = (salario, valorHorasExtras) =>
 
 const calculaDescontos = (salario, descontos) => salario - descontos;
 
+export { somaHorasExtas, calculaDescontos };
+
 // const verifiqueSe = (valor) => {
 //   const assercoes = {
 //     ehExatamenteIgualA(esperado) {
@@ -36,5 +38,3 @@ const calculaDescontos = (salario, descontos) => salario - descontos;
 
 //   verifiqueSe(retornado).ehExatamenteIgualA(esperado);
 // });
-
-export { somaHorasExtas, calculaDescontos };
