@@ -1,0 +1,3 @@
+testar essa instalação na minha maquina em casa
+
+npm install --save-exact jest@28.1.0 --save-dev
