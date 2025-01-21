@@ -211,3 +211,8 @@ A API expõe os seguintes *endpoints* a partir da *base URL* `localhost:3000`:
 * Autenticação
 * Tratamento de erros
 * Validações
+
+
+Na Aula 05. Testando Rotas, Lição 5 Supertest é passado o comando para a instalação da lib Supertest
+
+npm install supertest@6.2.4 --save-exacte --save-dev

@@ -1,0 +1,18 @@
+@host = http://localhost:3000
+
+### LIVROS
+GET {{host}}/livros HTTP/1.1
+
+###
+GET {{host}}/livros/1 HTTP/1.1
+
+
+
+### EDITORAS
+GET {{host}}/editoras HTTP/1.1
+
+###
+GET {{host}}/editoras/5 HTTP/1.1
+
+###
+DELETE {{host}}/editoras/5 HTTP/1.1
