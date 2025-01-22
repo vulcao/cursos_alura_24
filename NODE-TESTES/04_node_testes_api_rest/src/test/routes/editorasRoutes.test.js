@@ -37,11 +37,30 @@ describe("POST em editoras/id", () => {
 
     idEditoraCriada = resposta.body.content.id;
   });
+
+  it("Deve nao adicionar nada ao passar o body vazio", async () => {
+    const resposta = await request(app).post("/editoras").send({}).expect(400);
+
+    // expect(resposta.error.text.message).toEqual("Corpo da requisição vazio");
+  });
 });
 
 describe("GET em editoras/id", () => {
   it("Deve retornar uma editora por id", async () => {
     await request(app).get(`/editoras/${idEditoraCriada}`).expect(200);
+  });
+});
+
+describe("PUT em /editoras/id", () => {
+  test.each([
+    ["Nome", { nome: "Novo Nome" }],
+    ["Cidade", { cidade: "Nova Cidade" }],
+    ["Email", { email: "novo@email.com" }],
+  ])("Deve atualizar o campo %s na editora", async (chave, param) => {
+    await request(app)
+      .put(`/editoras/${idEditoraCriada}`)
+      .send(param)
+      .expect(204);
   });
 });
 

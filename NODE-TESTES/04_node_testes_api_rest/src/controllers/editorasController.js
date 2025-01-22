@@ -26,11 +26,17 @@ class EditorasController {
     const { body } = req;
     const editora = new Editora(body);
     try {
+      if (Object.keys(body).length === 0) {
+        throw new Error("Corpo da requisição vazio");
+      }
       const resposta = await editora.salvar(editora);
       return res
         .status(201)
         .json({ message: "editora criada", content: resposta });
     } catch (err) {
+      if (err.message === "Corpo da requisição vazio") {
+        return res.status(400).json(err.message);
+      }
       return res.status(500).json(err.message);
     }
   };
@@ -43,7 +49,7 @@ class EditorasController {
       const novaEditora = new Editora({ ...editoraAtual, ...body });
       const resposta = await novaEditora.salvar(novaEditora);
       return res
-        .status(200)
+        .status(204)
         .json({ message: "editora atualizada", content: resposta });
     } catch (err) {
       return res.status(500).json(err.message);
