@@ -1,4 +1,6 @@
-import Editora from "../models/editora.js";
+/* eslint-disable nonblock-statement-body-position */
+/* eslint-disable quotes */
+import Editora from '../models/editora.js';
 
 class EditorasController {
   static listarEditoras = async (_, res) => {
@@ -14,8 +16,7 @@ class EditorasController {
     const { params } = req;
     try {
       const resultado = await Editora.pegarPeloId(params.id);
-      if (!resultado)
-        return res.status(404).json({ message: "id não encontrado" });
+      if (!resultado) return res.status(404).json({ message: 'id não encontrado' });
       return res.status(200).json(resultado);
     } catch (err) {
       return res.status(500).json(err.message);
@@ -27,14 +28,14 @@ class EditorasController {
     const editora = new Editora(body);
     try {
       if (Object.keys(body).length === 0) {
-        throw new Error("Corpo da requisição vazio");
+        throw new Error('Corpo da requisição vazio');
       }
       const resposta = await editora.salvar(editora);
       return res
         .status(201)
-        .json({ message: "editora criada", content: resposta });
+        .json({ message: 'editora criada', content: resposta });
     } catch (err) {
-      if (err.message === "Corpo da requisição vazio") {
+      if (err.message === 'Corpo da requisição vazio') {
         return res.status(400).json(err.message);
       }
       return res.status(500).json(err.message);
@@ -50,7 +51,7 @@ class EditorasController {
       const resposta = await novaEditora.salvar(novaEditora);
       return res
         .status(204)
-        .json({ message: "editora atualizada", content: resposta });
+        .json({ message: 'editora atualizada', content: resposta });
     } catch (err) {
       return res.status(500).json(err.message);
     }
@@ -61,10 +62,10 @@ class EditorasController {
     try {
       const resultado = await Editora.pegarPeloId(params.id);
       if (!resultado) {
-        return res.status(404).json({ message: "id não encontrado" });
+        return res.status(404).json({ message: 'id não encontrado' });
       }
       await Editora.excluir(params.id);
-      return res.status(200).json({ message: "editora excluída" });
+      return res.status(200).json({ message: 'editora excluída' });
     } catch (err) {
       return res.status(500).json(err.message);
     }
