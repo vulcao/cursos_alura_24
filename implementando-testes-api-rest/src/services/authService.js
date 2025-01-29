@@ -50,6 +50,11 @@ class AuthService {
       if (!data.senha) {
         throw new Error('Senha é obrigatória.');
       }
+
+      const usuarioExistente = await Usuario.pegarPeloEmail(data.email);  
+      if (usuarioExistente) {
+        throw new Error('O email já esta cadastrado!');
+      }
       data.senha = await bcryptjs.hash(data.senha, 8);
       
       const usuario = new Usuario(data);

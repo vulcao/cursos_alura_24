@@ -3,3 +3,14 @@
 - Nao pode ser cadastrado um usuário com email duplicado
 - Ao cadastrar um usuario deve-se retornar uma mensagem informando o cadastro
 - Ao cadastrar um usuario deve-se validar o retorno do usuario
+
+
+aula 05 - Classificação dos testes:
+
+Na aula 4 foi implementad um teste com o padrão Triple A (Arrange, Act, Assert)
+Ele também é um teste Unitario, pois valida uma unica parte do código.
+Ele também tem acesso diretamente ao serviçe, por isso é considerado um teste de caixa-branca
+Testes de caixa-branca tem grande potencial de melhoria ao codigo
+
+avançei ate https://cursos.alura.com.br/course/node-js-implementando-testes-api-rest/task/136660
+
