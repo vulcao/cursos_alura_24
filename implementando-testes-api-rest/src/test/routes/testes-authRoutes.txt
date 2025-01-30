@@ -1,0 +1,4 @@
+// O login deve possuir email e senha pra autenticar o usuário;
+// O login deve validar se o usuário existe;
+// O login deve validar se o email e senha são válidos;
+// O login deve retornar um token de acesso;
