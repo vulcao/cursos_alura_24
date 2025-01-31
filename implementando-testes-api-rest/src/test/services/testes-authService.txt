@@ -36,5 +36,32 @@ Teste de Aceitação: Garante que o sistema atende aos critérios de aceitação
 
 Teste de banco de dados:
 
+Testes de persistencias, que testam banco de dados
+https://cursos.alura.com.br/course/node-js-implementando-testes-api-rest/task/136663
+No projeto da api o dbconfig ua o knex como módulo de conexãoo com oo sqlite, e ele não cria uma instancia de conexão
+Portanto pra testar se a conexão com o banco está funcionando, uma abordagem é a de fazer uma gravação de um registro no banco
 
-até aqui: https://cursos.alura.com.br/course/node-js-implementando-testes-api-rest/task/136663
+
+Usa o plugin SQLIte na aula, mas esse plugin nao da muita flexibilidade (ou eu nao sei usar ele direto...)
+Vi que existe um Database Client já instalado aqui, que suporta varias conexões, usei ele e me atendeu bem
+
+Testes End-to-End
+Com todas as etapas cobertas pelos testes, essa estrutura toda vais e chamar teste End-to-end (E2E)
+Porém observe que End-to-end exige que um analista de qualidade faça a avaliação completa, inclusive da aplicação front-end que vai consumir a api
+Mas mesmo assim podemos considerar este teste da API como end-to-end por testar todas as etapas da API
+Persistencia
+Serviço e 
+Retorno
+
+Esses testes são projetados para avaliar a funcionalidade, integração e interações entre diferentes componentes de um sistema em um ambiente semelhante ao do usuário final. Conheça algumas vantagens de realizar toda essa cobertura de testes em uma aplicação:
+  Verificação de Fluxo Completo:
+    Os testes E2E cobrem todo o fluxo do usuário, identificando possíveis problemas de integração ou falhas de funcionalidade.
+  Identificação de Problemas Complexos:
+    Esses testes podem revelar problemas que podem não ser detectados em testes unitários ou de integração isolados.
+  Garantia da Experiência do Usuário:
+    Os testes E2E simulam a experiência do usuário final, permitindo identificar falhas de usabilidade ou fluxos inadequados.
+
+Aula 4. Testando outras funcionalidades:
+02. Testando imagens
+
+https://cursos.alura.com.br/course/node-js-implementando-testes-api-rest/task/136666
