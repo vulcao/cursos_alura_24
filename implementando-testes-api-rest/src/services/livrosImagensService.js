@@ -34,10 +34,17 @@ class LivrosImagensService {
         base64: base64Image,
       };
 
+      if (req.file.mimetype != 'image/jpg' && req.file.mimetype != 'image/png') {
+        throw new Error(`O formato ${req.file.mimetype} não é permitido.`);
+      }
+      if (req.file.size > 5000) {
+        throw new Error('O limite para upload de imagem é de 5000kb.');
+      }
+
       const imagem = new LivroImagem(data);
       const resposta = await imagem.salvar(imagem);
 
-      return { message: 'imagem criado', content: resposta };
+      return { message: 'imagem criada', content: resposta };
     } catch (err) {
       throw new Error(err.message);
     }
