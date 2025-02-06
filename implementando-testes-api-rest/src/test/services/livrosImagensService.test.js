@@ -76,5 +76,28 @@ describe('Testando o livrosImagensService.cadastrarImagem', () => {
     const imagemSave = livrosImagensService.cadastrarImagem(imagemMock);
     await expect(imagemSave).rejects.toThrowError('O limite para upload de imagem é de 5000kb.');
   });
+
+  it('O sitema só deve salvar a imagem vinculada ao livro caso todos os dados estejam corretos', async () => {
+    const imagemMock = {
+      file: {
+        originalname: 'curso node.png',
+        mimetype: 'image/png',
+        size: 4000,
+        buffer: {
+            "type":"Buffer",
+            "data": [0, 1, 0, 1]
+        }
+      },
+      body: {
+        livroId: 1
+      }
+    };
+    const imagemSave = await livrosImagensService.cadastrarImagem(imagemMock);
+    expect(imagemSave.content.livro_id).toBe(imagemMock.body.livroId);
+    expect(imagemSave.content.size).toBeLessThan(5000);
+
+    // remove registro de teste
+    await livrosImagensService.excluirImagemLivro(imagemSave.content.id);
+  });
   
 });
