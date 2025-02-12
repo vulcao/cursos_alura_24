@@ -1,0 +1,28 @@
+@host = http://localhost:3000
+
+### EDITORAS
+GET {{host}}/editoras HTTP/1.1
+
+###
+GET {{host}}/editoras/5 HTTP/1.1
+
+###
+DELETE {{host}}/editoras/5 HTTP/1.1
+
+###
+POST {{host}}/editoras HTTP/1.1
+content-type: application/json
+
+{
+  "nome": "Teste",
+  "cidade": "teste",
+  "email": "e@e.com"
+}
+
+###
+PUT {{host}}/editoras/5 HTTP/1.1
+content-type: application/json
+
+{
+  "cidade": "Novo Teste"
+}

@@ -1,0 +1,67 @@
+- O usuario deve possuir um nome, email e senha
+- A senha do ususário precisa ser criptografada quando for salva no banco
+- Nao pode ser cadastrado um usuário com email duplicado
+- Ao cadastrar um usuario deve-se retornar uma mensagem informando o cadastro
+- Ao cadastrar um usuario deve-se validar o retorno do usuario
+
+
+aula 05 - Classificação dos testes:
+
+Na aula 4 foi implementad um teste com o padrão Triple A (Arrange, Act, Assert)
+Ele também é um teste Unitario, pois valida uma unica parte do código.
+Ele também tem acesso diretamente ao serviçe, por isso é considerado um teste de caixa-branca
+Testes de caixa-branca tem grande potencial de melhoria ao codigo
+
+avançei ate https://cursos.alura.com.br/course/node-js-implementando-testes-api-rest/task/136660
+
+Testes de Rotas (authRoutes.test.js)
+esse é um novo teste que vai validar o retorno das rotas
+este teste de rota pode ser chamado de teste de integração, pois ele valida o retorno que a api da para um outro sistema (um frontend) que vai acessar a api
+
+Um teste-de-caixa-preta é onde nao se tem acesso ao codigo do objeto testado
+"testes de caixa preta, também conhecidos como testes de integração e retorno, possuem uma abordagem de teste de software em que os testadores examinam o comportamento externo de um sistema sem ter conhecimento sobre sua estrutura interna ou código-fonte "
+
+Tipos de Testes de Caixa Branca
+Teste de Cobertura de Código (Code Coverage): Mede o percentual de código-fonte que está sendo coberto por testes. Os tipos comuns de cobertura incluem cobertura de linha, cobertura de ramificação e cobertura de caminho. Exemplo: Identificar partes do código não testadas em um script que gera relatórios.
+Teste de Caminho: Analisa todas as possíveis sequências de caminhos no código, garantindo que todos os fluxos lógicos tenham sido testados. Exemplo: Testar diferentes caminhos de uma função que calcula o preço total de uma compra com desconto.
+Teste de Fluxo de Controle: Garante que todas as declarações e decisões lógicas do código tenham sido executadas. Exemplo: Verificar se todas as ramificações de um código de verificação de autenticação são testadas.
+Teste de Unidade: Testa componentes individuais (funções, métodos, classes) do código para garantir que eles funcionem corretamente. Exemplo: Verificar se um método de validação de CPF está funcionando corretamente.
+
+Tipos de Testes de Caixa Preta
+Teste Funcional: Verifica se o sistema funciona de acordo com as especificações e requisitos. Exemplo: Verificar se ao “Autenticar” em uma api de login está sendo retornado o accessToken.
+Teste de Usabilidade: Avalia a facilidade de uso e a experiência do usuário do sistema. Exemplo: Avaliar se um aplicativo bancário possui uma interface intuitiva e fácil de usar para os clientes.
+Teste de Integração: Testa a interação entre componentes do sistema para garantir que trabalhem bem juntos. Exemplo: Testar se um aplicativo de redes sociais integra adequadamente recursos como publicar um novo post, adicionar comentários e curtir postagens.
+Teste de Aceitação: Garante que o sistema atende aos critérios de aceitação definidos pelo cliente. Exemplo: Confirmar se um aplicativo de delivery atende às expectativas do cliente, como entregar os itens corretos dentro do prazo.
+
+
+Teste de banco de dados:
+
+Testes de persistencias, que testam banco de dados
+https://cursos.alura.com.br/course/node-js-implementando-testes-api-rest/task/136663
+No projeto da api o dbconfig ua o knex como módulo de conexãoo com oo sqlite, e ele não cria uma instancia de conexão
+Portanto pra testar se a conexão com o banco está funcionando, uma abordagem é a de fazer uma gravação de um registro no banco
+
+
+Usa o plugin SQLIte na aula, mas esse plugin nao da muita flexibilidade (ou eu nao sei usar ele direto...)
+Vi que existe um Database Client já instalado aqui, que suporta varias conexões, usei ele e me atendeu bem
+
+Testes End-to-End
+Com todas as etapas cobertas pelos testes, essa estrutura toda vais e chamar teste End-to-end (E2E)
+Porém observe que End-to-end exige que um analista de qualidade faça a avaliação completa, inclusive da aplicação front-end que vai consumir a api
+Mas mesmo assim podemos considerar este teste da API como end-to-end por testar todas as etapas da API
+Persistencia
+Serviço e 
+Retorno
+
+Esses testes são projetados para avaliar a funcionalidade, integração e interações entre diferentes componentes de um sistema em um ambiente semelhante ao do usuário final. Conheça algumas vantagens de realizar toda essa cobertura de testes em uma aplicação:
+  Verificação de Fluxo Completo:
+    Os testes E2E cobrem todo o fluxo do usuário, identificando possíveis problemas de integração ou falhas de funcionalidade.
+  Identificação de Problemas Complexos:
+    Esses testes podem revelar problemas que podem não ser detectados em testes unitários ou de integração isolados.
+  Garantia da Experiência do Usuário:
+    Os testes E2E simulam a experiência do usuário final, permitindo identificar falhas de usabilidade ou fluxos inadequados.
+
+Aula 4. Testando outras funcionalidades:
+02. Testando imagens
+
+https://cursos.alura.com.br/course/node-js-implementando-testes-api-rest/task/136666
