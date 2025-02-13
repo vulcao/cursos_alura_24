@@ -8,3 +8,6 @@ Cursos de interesse:
 Curso atual (pre-requisito do curso acima):
 <https://cursos.alura.com.br/course/docker-criando-gerenciando-containers>
 iniciado em 12/02/2025
+
+em 13/02/2025
+<https://cursos.alura.com.br/course/docker-criando-gerenciando-containers/task/100387>
